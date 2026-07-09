@@ -6,7 +6,6 @@ import {
   Code2,
   Database,
   Download,
-  ExternalLink,
   FolderOpen,
   Mail,
   MapPin,
@@ -16,6 +15,10 @@ import {
   Trophy,
 } from "lucide-react";
 import { ContactForm } from "./components/ContactForm";
+import {
+  ProjectsSection,
+  type ProjectCardData,
+} from "./components/ProjectsSection";
 
 type IconType = ComponentType<{ className?: string; size?: number }>;
 
@@ -30,7 +33,7 @@ const navItems = [
 
 const stats = [
   { value: "2+", label: "Años de experiencia" },
-  { value: "6+", label: "Proyectos reales" },
+  { value: "7+", label: "Proyectos reales" },
   { value: "10+", label: "Tecnologías" },
 ];
 
@@ -53,7 +56,7 @@ const abilities: Array<{ title: string; icon: IconType; text: string }> = [
   {
     title: "DevOps & Cloud",
     icon: TerminalSquare,
-    text: "Docker, AWS, Linux Ubuntu, Git, Certbot, Amazon S3",
+    text: "Docker, AWS, Linux Ubuntu, Git, Amazon S3",
   },
 ];
 
@@ -77,7 +80,7 @@ const experience = [
   },
   {
     role: "Desarrollador de Software",
-    company: "Byma - E.I.R.L.",
+    company: "Bymave - E.I.R.L.",
     date: "Febrero 2024 - Diciembre 2024",
     bullets: [
       "Desarrollo de aplicación móvil para monitoreo de envíos y pedidos",
@@ -100,7 +103,7 @@ const experience = [
   },
   {
     role: "Desarrollador de Software",
-    company: "Byma - E.I.R.L.",
+    company: "Bymave - E.I.R.L.",
     date: "Septiembre 2023 - Enero 2024",
     bullets: [
       "Desarrollo de página web corporativa",
@@ -113,8 +116,9 @@ const experience = [
   },
 ];
 
-const projects = [
+const projects: ProjectCardData[] = [
   {
+    key: "cyc-web",
     title: "CYC WEB - Sistema de Cobranzas y Contacto",
     accent: "cyan",
     text: "Sistema web empresarial para gestión de cobranzas, contacto con clientes y llamadas desde navegador usando WebRTC.",
@@ -135,8 +139,46 @@ const projects = [
       "Docker",
       "AWS",
     ],
+    privacyProtected: true,
+    images: [
+      {
+        src: "/projects/CyCWeb1.png",
+        alt: "Vista general del sistema CYC WEB",
+        width: 1900,
+        height: 922,
+        masks: [
+          { left: 1.68, top: 8.46, width: 8.05, height: 3.8 },
+          { left: 15.89, top: 8.68, width: 12.26, height: 3.36 },
+          { left: 1.79, top: 18.22, width: 16.11, height: 9.44 },
+          { left: 22.89, top: 18.22, width: 17.11, height: 9.44 },
+          { left: 52.63, top: 18.22, width: 8.68, height: 9.44 },
+          { left: 66.42, top: 18.0, width: 28.84, height: 9.65 },
+          { left: 1.89, top: 43.82, width: 40.0, height: 35.14 },
+          { left: 66.32, top: 92.73, width: 33.05, height: 7.05 },
+        ],
+      },
+      {
+        src: "/projects/CyCWeb2.png",
+        alt: "Formulario de gestión y llamada WebRTC",
+        width: 1431,
+        height: 945,
+      },
+      {
+        src: "/projects/CyCWeb3.png",
+        alt: "Modal de cuotas del sistema CYC WEB",
+        width: 751,
+        height: 329,
+      },
+      {
+        src: "/projects/CyCWeb4.png",
+        alt: "Modal de campañas del sistema CYC WEB",
+        width: 754,
+        height: 260,
+      },
+    ],
   },
   {
+    key: "intranet",
     title: "Intranet Corporativa - Dashboards y Gestión",
     accent: "green",
     text: "Intranet para visualización de indicadores, control de equipos, reportes y seguimiento operativo con Power BI integrado.",
@@ -157,8 +199,35 @@ const projects = [
       "Redux Toolkit",
       "Tailwind CSS",
     ],
+    images: [
+      {
+        src: "/projects/Intranet1.png",
+        alt: "Dashboard de monitoreo de indicadores",
+        width: 1898,
+        height: 820,
+      },
+      {
+        src: "/projects/Intranet2.png",
+        alt: "Dashboard administrativo de permisos",
+        width: 1908,
+        height: 845,
+      },
+      {
+        src: "/projects/Intranet3.png",
+        alt: "Dashboard de monitoreo de uso del directorio",
+        width: 1902,
+        height: 927,
+      },
+      {
+        src: "/projects/Intranet4.png",
+        alt: "Flujo visual de procesos internos",
+        width: 1900,
+        height: 926,
+      },
+    ],
   },
   {
+    key: "ecommerce-web",
     title: "Aplicación Web E-commerce Administrativa",
     accent: "cyan",
     text: "Sistema administrativo completo para gestión de productos, pedidos, inventario, facturación y notificaciones.",
@@ -178,8 +247,35 @@ const projects = [
       "MySQL",
       "Amazon S3",
     ],
+    images: [
+      {
+        src: "/projects/EcommerceWeb1.png",
+        alt: "Dashboard principal del e-commerce administrativo",
+        width: 1358,
+        height: 926,
+      },
+      {
+        src: "/projects/EcommerceWeb2.png",
+        alt: "Formulario administrativo de recepción",
+        width: 1377,
+        height: 885,
+      },
+      {
+        src: "/projects/EcommerceWeb3.png",
+        alt: "Listado administrativo de productos o pedidos",
+        width: 1882,
+        height: 911,
+      },
+      {
+        src: "/projects/EcommerceWeb4.png",
+        alt: "Gestión de inventario del e-commerce",
+        width: 1688,
+        height: 815,
+      },
+    ],
   },
   {
+    key: "ecommerce-movil",
     title: "App Móvil E-commerce Administrativa",
     accent: "violet",
     text: "Aplicación móvil para monitoreo de pedidos, productos, envíos y ubicación en tiempo real con geolocalización.",
@@ -199,8 +295,35 @@ const projects = [
       "React Query",
       "Zustand",
     ],
+    images: [
+      {
+        src: "/projects/EcommerceMovil1.jpg",
+        alt: "Catálogo móvil de productos",
+        width: 720,
+        height: 1280,
+      },
+      {
+        src: "/projects/EcommerceMovil2.jpg",
+        alt: "Menú lateral de la aplicación móvil",
+        width: 720,
+        height: 1280,
+      },
+      {
+        src: "/projects/EcommerceMovil3.jpg",
+        alt: "Vista de geolocalización móvil",
+        width: 720,
+        height: 1280,
+      },
+      {
+        src: "/projects/EcommerceMovil4.jpg",
+        alt: "Seguimiento de pedidos en aplicación móvil",
+        width: 720,
+        height: 1280,
+      },
+    ],
   },
   {
+    key: "tickets",
     title: "Sistema Web de Tickets",
     accent: "cyan",
     text: "Aplicación para creación, atención e historial de tickets de soporte en tiempo real con WebSockets.",
@@ -218,8 +341,29 @@ const projects = [
       "Express",
       "Socket.IO",
     ],
+    images: [
+      {
+        src: "/projects/Tickets1.png",
+        alt: "Inicio de sesión del sistema de tickets",
+        width: 959,
+        height: 411,
+      },
+      {
+        src: "/projects/Tickets2.png",
+        alt: "Vista de ticket en atención",
+        width: 958,
+        height: 241,
+      },
+      {
+        src: "/projects/Tickets3.png",
+        alt: "Historial de tickets atendidos",
+        width: 936,
+        height: 762,
+      },
+    ],
   },
   {
+    key: "control-campo",
     title: "Sistema de Control de Gestiones de Campo",
     accent: "green",
     text: "Aplicación web para gestión, monitoreo y reporte de actividades de campo con mapas y exportación de datos.",
@@ -237,6 +381,76 @@ const projects = [
       "MySQL",
       "Docker",
       "Google Maps API",
+    ],
+    privacyProtected: true,
+    images: [
+      {
+        src: "/projects/ControlCampo1.png",
+        alt: "Mapa de rutas y marcadores de gestiones de campo",
+        width: 1034,
+        height: 952,
+        masks: [
+          { left: 18.96, top: 93.28, width: 8.8, height: 6.72 },
+          { left: 77.56, top: 93.28, width: 20.89, height: 6.72 },
+        ],
+      },
+      {
+        src: "/projects/ControlCampo2.png",
+        alt: "Panel de visitas de oficina",
+        width: 1339,
+        height: 805,
+        masks: [
+          { left: 11.58, top: 39.5, width: 11.28, height: 51.8 },
+          { left: 24.35, top: 39.5, width: 6.42, height: 51.8 },
+          { left: 34.5, top: 39.5, width: 14.04, height: 51.8 },
+        ],
+      },
+      {
+        src: "/projects/ControlCampo3.png",
+        alt: "Formulario para agregar una gestión de campo",
+        width: 918,
+        height: 948,
+        masks: [{ left: 0.54, top: 7.17, width: 14.16, height: 2.32 }],
+      },
+    ],
+  },
+  {
+    key: "migracion",
+    title: "Migración de Sistema de Gestión de Transporte",
+    accent: "violet",
+    text: "Migración y modernización de un sistema operativo para gestión de transporte, reportes, pedidos y comunicación interna.",
+    items: [
+      "Migración de interfaces a React",
+      "Optimización de flujos administrativos",
+      "Dashboards y reportes operativos",
+      "Módulos de comunicación interna",
+    ],
+    tags: ["React", "Node.js", "MySQL", "Docker", "JavaScript"],
+    images: [
+      {
+        src: "/projects/Migracion1.png",
+        alt: "Dashboard principal del sistema migrado",
+        width: 1918,
+        height: 954,
+      },
+      {
+        src: "/projects/Migracion2.png",
+        alt: "Vista de pedidos y comunicación interna",
+        width: 1908,
+        height: 946,
+      },
+      {
+        src: "/projects/Migracion3.png",
+        alt: "Panel administrativo del sistema de transporte",
+        width: 1907,
+        height: 951,
+      },
+      {
+        src: "/projects/Migracion4.png",
+        alt: "Módulo de consulta y gestión del sistema migrado",
+        width: 1909,
+        height: 939,
+      },
     ],
   },
 ];
@@ -292,8 +506,6 @@ const stack = [
       "Linux Ubuntu",
       "AWS",
       "Amazon S3",
-      "Certbot",
-      "Nginx",
       "Power BI",
     ],
   },
@@ -331,7 +543,9 @@ function Header() {
           <span className="grid h-11 w-11 place-items-center rounded-xl bg-(--cyan) text-sm font-black text-[#04101b]">
             RA
           </span>
-          <span className="hidden text-sm sm:inline md:text-base">reiner Alayo</span>
+          <span className="hidden text-sm sm:inline md:text-base">
+            reiner Alayo
+          </span>
         </a>
         <nav className="hidden items-center gap-9 text-sm font-semibold text-(--muted) lg:flex">
           {navItems.map((item) => (
@@ -345,7 +559,9 @@ function Header() {
           href="/cv-david-reiner-alayo.pdf"
           download
         >
-          <Download size={17} /> <span className="hidden md:inline">Descargar CV</span><span className="md:hidden">CV</span>
+          <Download size={17} />{" "}
+          <span className="hidden md:inline">Descargar CV</span>
+          <span className="md:hidden">CV</span>
         </a>
       </div>
     </header>
@@ -450,7 +666,10 @@ function HeroGraphic() {
 
 function Hero() {
   return (
-    <section id="inicio" className="section min-h-[calc(100vh-72px)] pt-14 sm:pt-20 lg:pt-28">
+    <section
+      id="inicio"
+      className="section min-h-[calc(100vh-72px)] pt-14 sm:pt-20 lg:pt-28"
+    >
       <div className="container grid items-center gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
         <div>
           <span className="badge">
@@ -502,7 +721,7 @@ function Hero() {
 function About() {
   return (
     <section
-      id="sobre-mí"
+      id="sobre-mi"
       className="section border-t border-(--line) bg-[#091020]"
     >
       <div className="container grid items-center gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16">
@@ -573,7 +792,10 @@ function Experience() {
         <div className="relative mt-14">
           <div className="timeline-line" />
           {experience.map((job) => (
-            <article key={`${job.role}-${job.date}`} className="relative mb-8 pl-14 sm:pl-20">
+            <article
+              key={`${job.role}-${job.date}`}
+              className="relative mb-8 pl-14 sm:pl-20"
+            >
               <span className="timeline-dot" />
               <div className="card p-6">
                 <div className="flex flex-wrap items-start justify-between gap-4">
@@ -621,73 +843,7 @@ function Experience() {
 }
 
 function Projects() {
-  return (
-    <section
-      id="proyectos"
-      className="section border-t border-(--line) bg-[#091020]"
-    >
-      <div className="container">
-        <div className="mx-auto max-w-xl text-center">
-          <p className="kicker">Portafolio</p>
-          <h2 className="mt-4 text-4xl font-black">Proyectos Destacados</h2>
-          <p className="mt-4 text-(--muted)">
-            Aplicaciones reales desarrolladas para empresas, con tecnologías
-            modernas y en producción.
-          </p>
-        </div>
-        <div className="mt-14 grid gap-6 lg:grid-cols-3">
-          {projects.map((p) => (
-            <article key={p.title} className="card flex flex-col p-6">
-              <p
-                className={
-                  p.accent === "green"
-                    ? "kicker text-(--green)! before:hidden! after:hidden!"
-                    : p.accent === "violet"
-                      ? "kicker text-(--violet)! before:hidden! after:hidden!"
-                      : "kicker before:hidden! after:hidden!"
-                }
-              >
-                Proyecto
-              </p>
-              <h3 className="mt-3 text-xl font-black">{p.title}</h3>
-              <p className="mt-4 min-h-20 text-sm leading-6 text-(--muted)">
-                {p.text}
-              </p>
-              <ul className="mt-5 grid gap-2 text-xs text-(--muted)">
-                {p.items.map((i) => (
-                  <li key={i} className="flex gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-(--cyan)" />
-                    {i}
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-6 flex flex-wrap gap-2">
-                {p.tags.map((t) => (
-                  <span
-                    key={t}
-                    className="rounded-md bg-[#17263d] px-2.5 py-1 text-xs text-(--muted)"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-              <div className="mt-auto grid grid-cols-3 gap-2 border-t border-(--line) pt-5">
-                <button className="btn btn-ghost p-2! text-xs">
-                  Ver detalle
-                </button>
-                <button className="btn btn-ghost p-2! text-xs">
-                  <ExternalLink size={13} /> Demo
-                </button>
-                <button className="btn btn-ghost p-2! text-xs">
-                  <Code2 size={13} /> Código
-                </button>
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+  return <ProjectsSection projects={projects} />;
 }
 
 function Skills() {
@@ -874,7 +1030,9 @@ function Contact() {
                     </span>
                     <div className="min-w-0">
                       <p className="text-sm text-(--muted)">{label}</p>
-                      <b className="block break-words text-sm sm:text-base">{value}</b>
+                      <b className="block break-words text-sm sm:text-base">
+                        {value}
+                      </b>
                     </div>
                   </div>
                   <ArrowRight className="shrink-0 text-(--muted)" size={18} />
@@ -912,10 +1070,7 @@ function Footer() {
             <p>Desarrollador de Software & Full Stack</p>
           </div>
         </div>
-        <p>
-          Diseñado y desarrollado por David Reiner Alayo Laury con React y
-          Tailwind CSS.
-        </p>
+        <p></p>
         <div className="flex gap-3">
           <a
             className="badge rounded-xl p-3"
